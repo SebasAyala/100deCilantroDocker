@@ -1,0 +1,46 @@
+version: '2'
+
+services:
+  # Contenedor de Laravel
+  php-laravel:
+    container_name: php-laravel
+    build:
+      context: ./php-laravel/
+      dockerfile: dockerfile
+    environment:
+      - "DB_HOST=mysql"
+      - "REDIS_HOST=cache"
+    ports:
+      - 8990:80
+
+  # Contenedor de NGINX
+  nginx-laravel:
+    container_name: nginx-laravel
+    build:
+      context: ./nginx-laravel/
+      dockerfile: dockerfile
+    volumes:
+      - ./nginx-laravel/volume/:/var/log/nginx
+    ports:
+      - 8992:80
+
+  # Contenedor de MySQL
+  mysql:
+    container_name: mysql
+    image: mysql:5.7
+    volumes:
+      - dbdata:/var/lib/mysql
+    environment:
+      - "MYSQL_DATABASE=100deCilantro"
+      - "MYSQL_USER=100deCilantro"
+      - "MYSQL_PASSWORD=100deCilantro"
+      - "MYSQL_ROOT_PASSWORD=cilatroTuPapa"
+    ports:
+      - 8991:3306
+
+  # redis
+  cache:
+    image: redis:3.0-alpine
+
+volumes:
+  dbdata:
