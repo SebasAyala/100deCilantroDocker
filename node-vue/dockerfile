@@ -1,0 +1,20 @@
+FROM node:10 as build-stage
+
+RUN apt-get update && apt-get -y install git
+RUN npm install -g http-server
+
+WORKDIR /var/www
+
+RUN git clone https://github.com/SebasAyala/100deCilantroFront.git
+
+WORKDIR /var/www/100deCilantroFront
+
+RUN npm install
+RUN npm run build
+RUN npm audit fix
+VOLUME ["/volume"]
+
+FROM nginx:1.13.12-alpine as production-stage
+COPY --from=build-stage /var/www/100deCilantroFront/dist /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
