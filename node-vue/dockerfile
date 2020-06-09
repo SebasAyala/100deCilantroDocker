@@ -10,6 +10,7 @@ RUN git clone https://github.com/SebasAyala/100deCilantroFront.git
 WORKDIR /var/www/100deCilantroFront
 
 RUN npm install
+ENV VUE_APP_API_URL=nginx-laravel VUE_APP_MEDIA_URL=nginx-laravel
 RUN npm run build
 RUN npm audit fix
 VOLUME ["/volume"]

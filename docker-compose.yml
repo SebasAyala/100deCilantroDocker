@@ -33,9 +33,6 @@ services:
     build:
       context: ./node-vue/
       dockerfile: dockerfile
-    environment:
-      - "VUE_APP_API_URL=nginx-laravel"
-      - "VUE_APP_MEDIA_URL=nginx-laravel"
     ports:
       - 8993:80
 
