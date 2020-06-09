@@ -55,3 +55,8 @@ Y seguidamente
 ```
 php artisan migrate --seed
 ```
+![Migraciones](./Img/migraciones.png)
+
+Después de esto, el proyecto debe estar disponible en http://localhost:8993
+
+![paginaPrincipal](./Img/paginaPrincipal.jpg)
