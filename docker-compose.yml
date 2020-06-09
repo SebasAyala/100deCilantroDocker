@@ -4,6 +4,7 @@ services:
   # Contenedor de Laravel
   php-laravel:
     container_name: php-laravel
+    hostname: php-laravel
     build:
       context: ./php-laravel/
       dockerfile: dockerfile
@@ -16,6 +17,7 @@ services:
   # Contenedor de NGINX para Laravel
   nginx-laravel:
     container_name: nginx-laravel
+    hostname: nginx-laravel
     build:
       context: ./nginx-laravel/
       dockerfile: dockerfile
@@ -27,31 +29,20 @@ services:
   # Contenedor de Vue
   node-vue:
     container_name: node-vue
+    hostname: node-vue
     build:
       context: ./node-vue/
       dockerfile: dockerfile
-    environment:
-      - "VUE_APP_API_URL=nginx-laravel"
-      - "VUE_APP_MEDIA_URL=nginx-laravel"
+      environment:
+        - "VUE_APP_API_URL=nginx-laravel"
+        - "VUE_APP_MEDIA_URL=nginx-laravel"
     ports:
       - 8993:80
-
-  # Contenedor de NGINX para Vue
-  nginx-vue:
-    container_name: nginx-vue
-    build:
-      context: ./nginx-vue/
-      dockerfile: dockerfile
-    volumes:
-      - ./nginx-vue/volume/:/var/log/nginx
-    links:
-      - node-vue
-    ports:
-      - 8888:80
 
   # Contenedor de MySQL
   mysql:
     container_name: mysql
+    hostname: mysql
     image: mysql:5.7
     volumes:
       - dbdata:/var/lib/mysql
