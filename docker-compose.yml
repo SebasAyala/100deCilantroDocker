@@ -14,7 +14,7 @@ services:
       - 8990:80
     networks:
       - 100deCilantro:
-          ipv4_address: 127.0.0.2
+          ipv4_address: '127.0.0.2'
 
   # Contenedor de NGINX para Laravel
   nginx-laravel:
@@ -28,7 +28,7 @@ services:
       - 8992:80
     networks:
       - 100deCilantro:
-          ipv4_address: 127.0.0.3
+          ipv4_address: '127.0.0.3'
 
   # Contenedor de Vue
   node-vue:
@@ -40,7 +40,7 @@ services:
       - 8993:80
     networks:
       - 100deCilantro:
-          ipv4_address: 127.0.0.4
+          ipv4_address: '127.0.0.4'
 
   # Contenedor de MySQL
   mysql:
@@ -65,8 +65,8 @@ networks:
     driver: bridge
     ipam:
       config:
-        - subnet: 127.0.0.0/8
-          gateway: 127.0.0.1
+        - subnet: '127.0.0.0/8'
+          gateway: '127.0.0.1'
 
 volumes:
   dbdata:
