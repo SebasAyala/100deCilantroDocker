@@ -67,5 +67,8 @@ services:
   cache:
     image: redis:3.0-alpine
 
+networks:
+  default:
+
 volumes:
   dbdata:
