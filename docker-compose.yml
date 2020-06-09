@@ -12,9 +12,6 @@ services:
       - "REDIS_HOST=cache"
     ports:
       - 8990:80
-    networks:
-      - 100deCilantro:
-          ipv4_address: '127.0.0.2'
 
   # Contenedor de NGINX para Laravel
   nginx-laravel:
@@ -26,9 +23,6 @@ services:
       - ./nginx-laravel/volume/:/var/log/nginx
     ports:
       - 8992:80
-    networks:
-      - 100deCilantro:
-          ipv4_address: '127.0.0.3'
 
   # Contenedor de Vue
   node-vue:
@@ -38,9 +32,6 @@ services:
       dockerfile: dockerfile
     ports:
       - 8993:80
-    networks:
-      - 100deCilantro:
-          ipv4_address: '127.0.0.4'
 
   # Contenedor de MySQL
   mysql:
@@ -61,12 +52,7 @@ services:
     image: redis:3.0-alpine
 
 networks:
-  100deCilantro:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: '127.0.0.0/8'
-          gateway: '127.0.0.1'
+  default:
 
 volumes:
   dbdata:
