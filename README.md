@@ -32,4 +32,4 @@ docker ps
 
 El comando debe arrojar un resultado como este.
 
-![JWTUser](./Img/DockerContenedores.PNG)
+![DockerContenedores](./Img/DockerContenedores.png)
