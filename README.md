@@ -5,6 +5,7 @@
 - Jhorman Duvan Vacca Manzano
 - Jose Luis Nova Arguello
 
+## Despliegue
 Para poder desplegar este proyecto se debe instalar todo lo listado a continuación.
 
 - Docker
@@ -33,3 +34,24 @@ docker ps
 El comando debe arrojar un resultado como este.
 
 ![DockerContenedores](./Img/DockerContenedores.png)
+
+## Ejecutar migraciones de la BD
+Para ejecutar las migraciones de la base de datos, se debe acceder a la consola del contenedor de Laravel. Para esto, se debe ejecutar el siguiente comando.
+
+```
+docker exec -it php-laravel bash
+```
+Y seguidamente
+```
+php artisan migrate --seed
+```
+
+## Ejecutar migraciones de la BD
+Para ejecutar las migraciones de la base de datos, se debe acceder a la consola del contenedor de Laravel. Para esto, se debe ejecutar el siguiente comando.
+```
+docker exec -it php-laravel bash
+```
+Y seguidamente
+```
+php artisan migrate --seed
+```
