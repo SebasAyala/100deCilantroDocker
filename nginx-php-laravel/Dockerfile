@@ -39,6 +39,12 @@ WORKDIR /var/www/html/100deCilantro
 RUN composer install
 RUN mv .env.prod .env
 
+#Make public storage folder
+RUN chown -R root:www-data storage
+RUN chown -R root:www-data bootstrap/cache
+RUN chmod -R 775 storage
+RUN chmod -R 775 bootstrap/cache
+
 #------------- FPM & Nginx configuration ----------------------------------------------------
 
 # Config fpm to use TCP instead of unix socket
