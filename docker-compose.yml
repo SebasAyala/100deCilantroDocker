@@ -24,6 +24,20 @@ services:
     ports:
       - 8992:80
 
+  # Contenedor de NGINX para Laravel
+  nginx-php-laravel:
+    container_name: nginx-php-laravel
+    build:
+      context: ./nginx-php-laravel/
+      dockerfile: dockerfile
+    environment:
+      - "DB_HOST=mysql"
+      - "REDIS_HOST=cache"
+    volumes:
+      - ./nginx-php-laravel/volume/:/var/log/nginx
+    ports:
+      - 8995:80
+
   # Contenedor de Vue
   node-vue:
     container_name: node-vue
