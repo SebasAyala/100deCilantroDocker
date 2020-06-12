@@ -24,12 +24,12 @@ services:
     ports:
       - 8992:80
 
-  # Contenedor de NGINX para Laravel
+  # Contenedor de NGINX, PHP y Laravel
   nginx-php-laravel:
     container_name: nginx-php-laravel
     build:
       context: ./nginx-php-laravel/
-      dockerfile: dockerfile
+      dockerfile: Dockerfile
     environment:
       - "DB_HOST=mysql"
       - "REDIS_HOST=cache"

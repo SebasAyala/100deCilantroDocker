@@ -34,6 +34,11 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 #Get Repo from GIT
 RUN git clone https://github.com/duvanmanzano/100deCilantro.git
 
+# Install composer in the project
+WORKDIR /var/www/html/100deCilantro
+RUN composer install
+RUN mv .env.prod .env
+
 #------------- FPM & Nginx configuration ----------------------------------------------------
 
 # Config fpm to use TCP instead of unix socket
