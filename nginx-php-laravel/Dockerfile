@@ -31,7 +31,7 @@ RUN apt-get install -y \
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-#Get Repo
+#Get Repo from GIT
 RUN git clone https://github.com/duvanmanzano/100deCilantro.git
 
 #------------- FPM & Nginx configuration ----------------------------------------------------
