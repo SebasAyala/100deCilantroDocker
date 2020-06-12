@@ -37,17 +37,6 @@ El comando debe arrojar un resultado como este.
 
 ## Ejecutar migraciones de la BD
 Para ejecutar las migraciones de la base de datos, se debe acceder a la consola del contenedor de Laravel. Para esto, se debe ejecutar el siguiente comando.
-
-```
-docker exec -it php-laravel bash
-```
-Y seguidamente
-```
-php artisan migrate --seed
-```
-
-## Ejecutar migraciones de la BD
-Para ejecutar las migraciones de la base de datos, se debe acceder a la consola del contenedor de Laravel. Para esto, se debe ejecutar el siguiente comando.
 ```
 docker exec -it php-laravel bash
 ```
