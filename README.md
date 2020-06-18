@@ -48,4 +48,7 @@ php artisan migrate --seed
 
 Después de esto, el proyecto debe estar disponible en http://localhost:8993
 
-![paginaPrincipal](./Img/paginaPrincipal.jpg)
+![paginaPrincipal](./Img/pagina_principal.PNG)
+
+Una demostración del proyecto se encuentra en este link:
+http://167.99.24.26:8993/#/
